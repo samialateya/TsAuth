@@ -1,0 +1,11 @@
+# ignore node_modules
+node_modules
+
+# ignore .env
+.env
+
+# ignore dist
+dist
+
+# ignore editor config
+.vscode
