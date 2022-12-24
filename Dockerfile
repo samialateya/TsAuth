@@ -40,10 +40,6 @@ RUN npm install --production
 # copy all the files to the working directory
 COPY . .
 
-# set environment variables
-ENV PORT=3000
-ENV APP_NAME=TS-Auth
-
 # Expose port 3000
 EXPOSE 3000
 
