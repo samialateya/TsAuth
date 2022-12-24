@@ -1,13 +1,31 @@
 version: "3.4"
 
 services:
+  redis:
+    container_name: ts-auth-redis
+    image: redis:alpine
+    restart: always
+    ports:
+      - 6377:6379
+    volumes:
+      - ./redis-data:/data
+
   api:
     container_name: ts-auth-debug
     image: samialateya/ts-auth:1.0.0
     build:
       context: .
       target: debug
-    volumes:
-    - ./src/:/usr/app/src/
+    depends_on:
+      - redis
+    links:
+      - redis
     ports:
       - 3000:3000
+    restart: on-failure
+    environment:
+      - PORT=3000
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    volumes:
+    - ./src/:/usr/app/src/
