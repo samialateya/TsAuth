@@ -13,7 +13,7 @@ export const app: Application = express();
 
 // * health check
 app.get('/health', (req: Request, res: Response) => {
-	res.sendStatus(201);
+	res.sendStatus(200);
 });
 
 // * check redis connection
