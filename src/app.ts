@@ -34,8 +34,5 @@ app.get('/write', async (req: Request, res: Response) => {
 	res.sendStatus(status);
 });
 	
-
-
-
 // export the app
 export default app;
