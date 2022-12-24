@@ -1,4 +1,4 @@
-import RedisModule from '../../Lib/redis';
+import RedisModule from '../../Lib/Redis';
 
 
 /* ------------------------ test redis functionality ------------------------ */
