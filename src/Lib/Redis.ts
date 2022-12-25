@@ -1,7 +1,7 @@
 import { createClient } from 'redis';
 import type { RedisClientType } from 'redis';
 import redisConfig from '../Config/redis.config';
-import RedisInterface from '../Interfaces/Lib/Redis.interface';
+import { RedisInterface } from '../Interfaces/Lib/Redis.interface';
 
 class Redis implements RedisInterface {
 	/* ---------------------------- Class properties ---------------------------- */
