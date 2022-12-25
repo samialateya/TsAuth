@@ -4,6 +4,7 @@ import 'express-async-errors';
 import express, { Application, Request, Response } from 'express';
 
 import RedisModule from './Lib/Redis';
+import PostgresModule from './Lib/Postgres';
 
 /* --------------------- initialize express application --------------------- */
 dotenv.config();
@@ -31,6 +32,15 @@ app.get('/write', async (req: Request, res: Response) => {
 	const redisModule = await RedisModule;
 	const write = await redisModule.set('test', 'test');
 	const status: number = write ? 200 : 500;
+	res.sendStatus(status);
+});
+
+// * test postgres connection
+app.get('/postgres', async (req: Request, res: Response) => {
+	// wait for the postgres module to be connected
+	const postgresModule = await PostgresModule;
+	// check if the postgres client is connected
+	const status: number = postgresModule.client.connect ? 200 : 500;
 	res.sendStatus(status);
 });
 	
