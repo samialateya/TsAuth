@@ -1,3 +1,5 @@
+# ----------------------------- API Debug Config ----------------------------- #
+
 # pull node image from docker hub
 FROM node:16-alpine as debug
 
@@ -24,6 +26,8 @@ EXPOSE 3000
 # command to run on container start
 CMD ["npm", "run", "dev"]
 
+
+# --------------------------- API Production Config -------------------------- #
 
 # pull node image from docker hub
 FROM node:16-alpine as prod

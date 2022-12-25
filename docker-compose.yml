@@ -8,7 +8,21 @@ services:
     ports:
       - 6377:6379
     volumes:
-      - ./redis-data:/data
+      - ./volumes/redis-data:/data
+
+  postgres:
+    container_name: ts-auth-postgres
+    image: postgres:latest
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ts-auth
+    volumes:
+      - ./volumes/postgres-data:/var/lib/postgresql/data
+      - ./postgres_migration:/docker-entrypoint-initdb.d
 
   api:
     container_name: ts-auth-debug
@@ -18,8 +32,10 @@ services:
       target: debug
     depends_on:
       - redis
+      - postgres
     links:
       - redis
+      - postgres
     ports:
       - 3000:3000
     restart: on-failure
@@ -27,5 +43,10 @@ services:
       - PORT=3000
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ts-auth
     volumes:
     - ./src/:/usr/app/src/

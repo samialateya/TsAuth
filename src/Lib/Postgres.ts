@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import postgresConfig from '../Config/Postgres.config';
+import postgresConfig from '../Config/postgres.config';
 
 class Postgres {
 	/* ---------------------------- class properties ---------------------------- */

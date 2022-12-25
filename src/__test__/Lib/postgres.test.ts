@@ -1,4 +1,4 @@
-import PostgresModule from '../../Lib/postgres';
+import PostgresModule from '../../Lib/Postgres';
 
 /* ------------------------ test postgres functionality ------------------------ */
 describe('Check the postgres functionality', () => {
