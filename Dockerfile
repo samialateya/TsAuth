@@ -1,3 +1,5 @@
+# ----------------------------- API Debug Config ----------------------------- #
+
 # pull node image from docker hub
 FROM node:16-alpine as debug
 
@@ -25,6 +27,8 @@ EXPOSE 3000
 CMD ["npm", "run", "dev"]
 
 
+# --------------------------- API Production Config -------------------------- #
+
 # pull node image from docker hub
 FROM node:16-alpine as prod
 
@@ -39,10 +43,6 @@ RUN npm install --production
 
 # copy all the files to the working directory
 COPY . .
-
-# set environment variables
-ENV PORT=3000
-ENV APP_NAME=TS-Auth
 
 # Expose port 3000
 EXPOSE 3000
