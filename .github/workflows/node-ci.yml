@@ -17,22 +17,23 @@ jobs:
       matrix:
         node-version: [16.x]
 
+    # Service containers to run with `container-job`
     services:
+      # Label used to access the service container
       postgres:
-        image: postgres
-
+        # Docker Hub image
+        image: postgres:latest
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
-          POSTGRES_DB: ts-auth
-
+          POSTGRES_DATABASE: ts-auth
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 5432:5432
     env:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
