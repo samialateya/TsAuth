@@ -25,8 +25,8 @@ jobs:
         image: postgres:latest
         # Provide the password for postgres
         env:
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ${{ secrets.PG_PASSWORD }}
+          POSTGRES_USER: ${{ secrets.PG_USER }}
           POSTGRES_DB: ts-auth
         # Set health checks to wait until postgres has started
         options: >-
@@ -56,8 +56,8 @@ jobs:
     env:
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${{ secrets.PG_PASSWORD }}
+      POSTGRES_USER: ${{ secrets.PG_USER }}
       POSTGRES_DATABASE: ts-auth
       REDIS_HOST: localhost
       REDIS_PORT: 6379
