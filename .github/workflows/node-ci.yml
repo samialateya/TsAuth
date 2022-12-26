@@ -25,18 +25,21 @@ jobs:
         image: postgres:latest
         # Provide the password for postgres
         env:
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
-          POSTGRES_DATABASE: ts-auth
+          POSTGRES_DB: ts-auth
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
     env:
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DATABASE: ts-auth
