@@ -8,7 +8,7 @@
     "start": "tsc && node dist/index.js",
     "dev": "nodemon src/index.ts",
     "lint": "eslint . --ext .ts",
-    "build": "tsc",
+    "build": "tsc --forceExit",
     "test": "jest --coverage --verbose"
   },
   "keywords": [],
