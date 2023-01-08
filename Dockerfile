@@ -39,7 +39,7 @@ WORKDIR /usr/app
 COPY package*.json ./
 
 # install dependencies
-RUN npm install --production
+RUN npm install
 
 # copy all the files to the working directory
 COPY . .
