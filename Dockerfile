@@ -30,7 +30,7 @@ CMD ["npm", "run", "dev"]
 # --------------------------- API Production Config -------------------------- #
 
 # pull node image from docker hub
-FROM node:16-alpine as prod
+FROM node:16-alpine
 
 # set working directory in the container
 WORKDIR /usr/app
