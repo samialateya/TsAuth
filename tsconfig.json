@@ -8,4 +8,7 @@
 		"esModuleInterop": true,  // Allows for default imports
 	},
 	"include": ["src/**/*"],
+	"exclude": [
+		"**/*.test.ts"
+	],
 }
