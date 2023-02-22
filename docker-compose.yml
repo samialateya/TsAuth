@@ -29,7 +29,6 @@ services:
     image: samialateya/ts-auth:1.0.0
     build:
       context: .
-      target: debug
     depends_on:
       - redis
       - postgres
